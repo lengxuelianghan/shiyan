@@ -7,6 +7,6 @@
 ## RCNN.py 是RCNN的代码
 # My_below1文件夹下是SST-2数据及代码
 ## 结构大体如上
-## 运行时会弹出：请选择1. 2. 3. 4.
-# 1表示HGRUaAtt，2表示test_train，3表示LSTM-Attention，4表示RCNN
-# 所有超参数及配置内置与代码中
+# 运行时会弹出：请选择1. 2. 3. 4.
+## 1表示HGRUaAtt，2表示test_train，3表示LSTM-Attention，4表示RCNN
+## 所有超参数及配置内置与代码中
