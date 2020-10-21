@@ -496,6 +496,13 @@ class BiLSTM_Att_CNN(BaseModelMixin):
         with tf.name_scope("loss"):
             self.loss = tf.nn.softmax_cross_entropy_with_logits_v2(logits=scores, labels=self.input_y)
             self.loss = tf.reduce_mean(self.loss) + self.l2_reg_lambda * self._L2loss
+        return self.loss + self.Loss_func_2(scores)
+    
+    def Loss_func_2(self, scores):
+        with tf.name_scope("loss"):
+              latent_loss = tf.reduce_mean(tf.reduce_sum(tf.square(scores - self.input_y),1))
+              reg_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
+              losses = tf.add_n([latent_loss]+reg_losses) * 0.62
         return self.loss
 
     def accuracy_func(self, pre):
